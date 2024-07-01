@@ -37,6 +37,10 @@
           "type": "string",
           "description": "Email address to use in 42 headers"
         },
+        "42header.remove42": {
+          "type": "boolean",
+          "description": "Whether or not to remove the 42 symbol from the header"
+        },
         "42header.keepAuthor": {
           "type": "boolean",
           "default": true,

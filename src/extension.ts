@@ -43,6 +43,13 @@ const getCurrentUserMail = () =>
   vscode.workspace.getConfiguration()
     .get('42header.email') || renderUserMail(getCurrentUser())
 
+/**
+ * Return current user mail from config or default value
+ */
+const getRemove42Part = () =>
+  vscode.workspace.getConfiguration()
+    .get('42header.remove42') || false
+
 const renderUserMail = (user: string) => `${user}@student.42.fr`
 
 /**
@@ -103,6 +110,9 @@ const insertHeaderHandler = () => {
             newHeaderInfo(document)
           )
         )
+      
+        if (remove42)
+          editor.replace(new Range(0, 47, 11, 78), "");
     })
   else
     vscode.window.showInformationMessage(
